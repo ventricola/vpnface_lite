@@ -227,6 +227,14 @@ class Core extends EventEmitter
     await this.createServer(serverDark,true)
     await this.openvpn.startServer(serverDark.code)
 
+    let serverRemote = conf.servers.remote
+    if (!serverRemote.cert)
+      serverRemote.cert = conf.cert
+    serverRemote.network.remote = this._ip
+
+    await this.createServer(serverRemote,true)
+    await this.openvpn.startServer(serverRemote.code)
+
     log.success('vpn сервера установлены')
   }
 
