@@ -126,6 +126,7 @@ class OpenVPN
     sjs.cd(this._path+srv)
     sjs.exec('./easyrsa gen-crl',{silent:true})
     sjs.cp(this._path+srv+'/pki/crl.pem','/etc/openvpn/'+srv)
+    sjs.chmod('a+r', '/etc/openvpn/'+srv+'/crl.pem');
     sjs.exec('systemctl restart openvpn@'+srv,{silent:true})
   }
 
@@ -236,6 +237,8 @@ class OpenVPN
     sjs.cp(dir+'/ta.key',odir)
     sjs.cp(dir+'/dh.pem',odir)
     sjs.cp(dir+'/crl.pem',odir)
+    sjs.chmod('a+r', odir+'/crl.pem');
+
   }
 
   genServCerts(conf)

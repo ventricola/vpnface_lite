@@ -72,6 +72,27 @@ module.exports = {
       // certificate overrides, if required
       //cert: {
       //}
+    },
+    remote: {
+      name: 'Удаленные сети VPN',
+      desc: 'Пользователи этого vpn имеют доступ к удаленным сетям.\nРазные пользователи, подключившиеся к этому серверу, попадают в единую локальную сеть, внутри которой у них есть доступ друг к другу через внутренние ip адреса.\nЭтот vpn сервер не подключён к интернету, поэтому при подключении к нему интернет отсутсвует. ',
+      code: 'remote',
+      logs: true,
+      type: 'remote', //public/root/dark
+      friends: true,
+      maxclients: 100,
+      network: {
+        host: '0.0.0.0',
+        remote: '', //ip set automatically 
+        intranet: '172.27.0.0/24',
+        port: 1197,
+        mport: 2297,
+        proto: 'tcp',
+        dev: 'tun3',
+      },
+      // certificate overrides, if required
+      //cert: {
+      //}
     }
   }
 }
