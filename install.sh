@@ -3,7 +3,7 @@
 #installation path
 #this is not data path. data path configured with conf.js
 VFL_DIR=/opt/vpnface_lite
-VFL_GIT=https://github.com/abrakadobr/vpnface_lite
+VFL_GIT=https://github.com/ventricola/vpnface_lite
 
 #install updates and packages
 apt-get update
@@ -29,9 +29,10 @@ mkdir -p /var/log/openvpn
 #
 #
 #installation node version manager and node 10
+export NVM_DIR="$VFL_DIR/.nvm"
+
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
-export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

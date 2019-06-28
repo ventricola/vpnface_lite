@@ -19,6 +19,8 @@ systemctl stop openvpn@inet
 systemctl disable openvpn@inet
 systemctl stop openvpn@darknet
 systemctl disable openvpn@darknet
+systemctl stop openvpn@remote
+systemctl disable openvpn@remote
 
 rm /etc/nginx/sites-enabled/vpnface_lite.conf
 rm /etc/nginx/sites-available/vpnface_lite.conf
@@ -29,9 +31,11 @@ nvm use 10
 forever-service delete vpnface_lite
 rm -f /usr/sbin/node
 
+
 rm -rf /etc/openvpn/adm*
 rm -rf /etc/openvpn/inet*
 rm -rf /etc/openvpn/darknet*
+rm -rf /etc/openvpn/remote*
 #keep clients data
 #rm -rf /opt/vpnface*
 rm -rf ~/.npm
